@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedinIn, FaTwitter, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import '../styles/Contact.css';
+import Contact from './Contact';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -62,6 +63,10 @@ const Contact = () => {
                 <p className="info-text">
                   <a href="mailto:lindelwesiphiwo@gmail.com" className="info-link">
                     lindelwesiphiwo@gmail.com
+                  </a>
+                  <h3 className="info-title">Contact</h3>
+                  <a href="tel:+263784262096" className="info-link">
+                    0784262096
                   </a>
                 </p>
               </motion.div>

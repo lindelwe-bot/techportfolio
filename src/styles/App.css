@@ -7,6 +7,11 @@
   --text-dark: #ffffff;
   --text-light: #1a1a1a;
   --section-spacing: 6rem;
+  --bg-color: #0a0a0a;
+  --text-color: #ffffff;
+  --accent-color: #ff00ff;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -93,6 +98,12 @@ button {
 [data-theme="light"] {
   background-color: var(--background-light);
   color: var(--text-light);
+  --bg-color: #ffffff;
+  --text-color: #0a0a0a;
+  --primary-color: #00cc7e;
+  --accent-color: #cc00cc;
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --card-border: rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive design */
@@ -124,4 +135,4 @@ button {
 
 .fade-in {
   animation: fadeIn 0.5s ease forwards;
-} 
+}

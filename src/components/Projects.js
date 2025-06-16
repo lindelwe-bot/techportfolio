@@ -1,6 +1,59 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import '../styles/Projects.css';
+
+const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+`;
+
+const ProjectCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+const ProjectImage = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+`;
+
+const ProjectTitle = styled.h3`
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+`;
+
+const ProjectDescription = styled.p`
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+`;
+
+const ProjectLinks = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+`;
+
+const ProjectLink = styled.a`
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: var(--bg-color);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+  }
+`;
 
 const projects = [
   {
@@ -21,11 +74,11 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Car selling Website',
-    description: 'A weather application with real-time data and interactive maps.',
+    title: 'Pharmarcy system',
+    description: 'A pharmacy system with real-time data for everyday sells',
     technologies: ['React', 'OpenWeather API', 'Chart.js'],
     image: '/project3.jpg',
-    link: '',
+    link: 'https://phamarcy-indol.vercel.app/',
   },
 ];
 
@@ -44,39 +97,24 @@ const Projects = () => {
             <span className="cyber-text">My</span>
             <span className="cyber-accent">Projects</span>
           </h2>
-          <div className="projects-grid">
+          <ProjectsGrid>
             {projects.map((project) => (
-              <motion.div
-                key={project.id}
-                className="project-card"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="project-image">
-                  <div className="project-overlay">
-                    <a href={project.link} className="project-link">
-                      View Project
-                    </a>
-                  </div>
-                </div>
-                <div className="project-info">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-technologies">
-                    {project.technologies.map((tech, index) => (
-                      <span key={index} className="tech-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
+              <ProjectCard key={project.id}>
+                <ProjectImage src={project.image} alt={project.title} />
+                <ProjectTitle>{project.title}</ProjectTitle>
+                <ProjectDescription>{project.description}</ProjectDescription>
+                <ProjectLinks>
+                  <ProjectLink href={project.link} target="_blank" rel="noopener noreferrer">
+                    View Project
+                  </ProjectLink>
+                </ProjectLinks>
+              </ProjectCard>
             ))}
-          </div>
+          </ProjectsGrid>
         </motion.div>
       </div>
     </section>
   );
 };
 
-export default Projects; 
+export default Projects;

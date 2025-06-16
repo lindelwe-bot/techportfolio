@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ThemeProvider } from './context/ThemeContext';
+import { useTheme } from './hooks/useTheme';  // Create this custom hook
 import ThemeToggle from './components/ThemeToggle';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -12,25 +13,11 @@ import Reviews from './components/Reviews';
 import './styles/App.css';
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  useEffect(() => {
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === 'dark');
-    }
-  }, []);
-
-  useEffect(() => {
-    // Update theme in localStorage and document
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
+  const { isDarkMode, setIsDarkMode } = useTheme();
 
   return (
     <ThemeProvider value={{ isDarkMode, setIsDarkMode }}>
-    <div className="App">
+      <div className="App">
         <ThemeToggle />
         <Navbar />
         <main>
@@ -42,7 +29,7 @@ function App() {
           <Contact />
         </main>
         <Footer />
-    </div>
+      </div>
     </ThemeProvider>
   );
 }

@@ -32,7 +32,7 @@ const Footer = () => {
           </div>
           <div className="footer-bottom">
             <p className="copyright">
-              © {currentYear} Your Name. All rights reserved.
+              © {currentYear} Lindelwe Siphiwo Njiba. All rights reserved.
             </p>
           </div>
         </div>

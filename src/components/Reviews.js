@@ -20,7 +20,7 @@ const Reviews = () => {
       id: 1,
       name: "Tonderai Kawere",
       title: "CEO, TechStart Inc.",
-      image: "/images/reviewers/sarah.jpg",
+      image: "",
       text: "Working with this developer was an absolute pleasure. Their attention to detail and problem-solving skills are exceptional. The project was delivered on time and exceeded our expectations.",
       rating: 5
     },
